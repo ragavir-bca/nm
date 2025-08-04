@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ragavi Raghu - Portfolio</title>
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #1d1d1d;
+      color: white;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(29,29,29,0.95);
+      padding: 20px 0;
+      z-index: 1000;
+    }
+
+    header .container {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: orange;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+      color: orange;
+    }
+
+    /* BUTTON */
+    .btn {
+      background: #FF4500;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff5c33;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 60vh;
+      padding: 120px 20px 40px 20px;
+      /* background image path (no C: path, only relative path) */
+      background: url('new-pic.jpeg') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #e63946;
+    }
+
+    .hero-text h3 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .hero-text p {
+      margin-top: 15px;
+      line-height: 1.7;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    /* FEATURES */
+    .features {
+      background: #252525;
+      padding: 50px 0;
+    }
+
+    .features-grid {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      max-width: 250px;
+      margin: 15px;
+    }
+
+    .feature i {
+      font-size: 40px;
+      color: orange;
+    }
+
+    .feature h3 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 60px 20px;
+      color: #fff;
+      background-color: #1d1d1d;
+    }
+
+    .about h2 {
+      color: orange;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    /* SECTIONS */
+    section.content-section {
+      width: 90%;
+      margin: auto;
+      padding: 60px 0;
+      line-height: 1.7;
+    }
+
+    section.content-section h2 {
+      text-align: center;
+      color: orange;
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+
+    section.content-section ul {
+      list-style: disc;
+      margin: 15px auto;
+      max-width: 700px;
+      padding-left: 20px;
+    }
+
+    /* EXPERIENCE */
+    .experience {
+      padding: 60px 0;
+    }
+
+    .experience-content {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .experience-text h5 {
+      color: orange;
+      margin-bottom: 10px;
+    }
+
+    .experience-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* CONTACT */
+    #contact p {
+      text-align: center;
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    #contact a {
+      color: orange;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">My<span>Portfolio</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Ragavi Raghu</h1>
+      <h3>BCA Student</h3>
+      <p>
+        I'm passionate about coding, web design, and learning new technologies.
+      </p>
+      <!-- Corrected resume link -->
+      <a href="RAGAVI RAGHU.pdf" download class="btn">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container features-grid">
+    <div class="feature"><i class='bx bx-code-alt'></i><h3>Programming</h3><p>Learning C, C++, Java, Python and Web Development.</p></div>
+    <div class="feature"><i class='bx bx-book'></i><h3>Continuous Learning</h3><p>Eager to explore new technologies and improve skills daily.</p></div>
+    <div class="feature"><i class='bx bx-bulb'></i><h3>Creative Projects</h3><p>Enjoy making unique projects with creativity and logic.</p></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>I am Ragavi, a first-year BCA student with a strong passion for technology and creativity.</p>
+    <p>I enjoy learning programming languages such as C, C++, Java, and Python. I love solving problems and building projects that challenge my logical thinking and creativity.</p>
+    <p>I also like designing websites using HTML, CSS, and JavaScript. My dream is to become a professional software developer.</p>
+    <p>Outside of academics, I enjoy listening to music and spending time with friends.</p>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="content-section" id="summary">
+  <h2>Technical Summary</h2>
+  <ul>
+    <li>Interest in programming and algorithms</li>
+    <li>Hands-on mini projects in HTML, CSS, JavaScript</li>
+    <li>Basic knowledge of Python and Java</li>
+    <li>Knowledge of DBMS and Git basics</li>
+  </ul>
+</section>
+
+<!-- PROJECTS -->
+<section class="experience" id="projects">
+  <div class="container experience-content">
+    <div class="experience-text">
+      <h5>Projects & Practical Experience</h5>
+      <p>I have completed several mini projects including personal portfolio websites,
+      simple web apps, and basic console applications. Each project has improved my coding and problem-solving skills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="content-section" id="skills">
+  <h2>Technical Proficiency</h2>
+  <ul>
+    <li>C, C++, Java, Python (Basics)</li>
+    <li>HTML, CSS, JavaScript</li>
+    <li>Tools: Git, VS Code</li>
+    <li>OOPS, DBMS basics</li>
+  </ul>
+</section>
+
+<!-- EDUCATION -->
+<section class="content-section" id="education">
+  <h2>Education</h2>
+  <div style="margin-bottom:30px; position:relative; padding-left:20px; border-left:2px solid #e63946;">
+    <h3>SSLC (2021)</h3>
+    <p>Government Girls Higher Secondary School<br>Percentage: 71.4%</p>
+  </div>
+  <div style="margin-bottom:30px; position:relative; padding-left:20px; border-left:2px solid #e63946;">
+    <h3>HSC (2023)</h3>
+    <p>Government Girls Higher Secondary School<br>Percentage: 70.16%</p>
+  </div>
+  <div style="position:relative; padding-left:20px; border-left:2px solid #e63946;">
+    <h3>Bachelor of Computer Applications (2025-Present)</h3>
+    <p>SRM Arts and Science College<br>Currently pursuing (2nd year)</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="content-section" id="contact">
+  <h2>Contact</h2>
+  <p>Email: ragaviraghu05@gmail.com</p>
+  <p>Phone: +91 9360224910</p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+</section>
+
+</body>
+</html>
